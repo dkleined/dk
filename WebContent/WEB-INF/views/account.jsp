@@ -59,13 +59,39 @@
 					style="font-size: 12pt; line-height: 2em;">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Images Uploaded</h3>
+							<h3 class="panel-title">Pictures Uploaded</h3>
 						</div>
 
 						<div class="panel-body">
 
 							<display:table name="uploadedPictures" id="picture" pagesize="10"
-								cellspacing="10" requestURI="/gallery" class="display-table"
+								cellspacing="10" requestURI="/account" class="display-table"
+								style="width:100%">
+								<display:column property="fileName" title="File Name" />
+								<display:column title="Price">$${picture.price} </display:column>
+								<display:column>
+									<a href="${deleteAction}?id=${picture.id}"> <input
+										type="submit" class="btn btn-primary" value="Delete" />
+									</a>
+								</display:column>
+							</display:table>
+
+
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-md-6"
+					style="font-size: 12pt; line-height: 2em;">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Pictures Purchased</h3>
+						</div>
+
+						<div class="panel-body">
+
+							<display:table name="purchasedPictures" id="picture" pagesize="10"
+								cellspacing="10" requestURI="/account" class="display-table"
 								style="width:100%">
 								<display:column property="fileName" title="File Name" />
 								<display:column title="Price">$${picture.price} </display:column>
