@@ -2,8 +2,6 @@ package com.dk.dao;
 
 import java.util.List;
 
-import org.hibernate.SessionFactory;
-
 import com.dk.model.User;
 
 public interface UserDAO {
@@ -13,5 +11,5 @@ public interface UserDAO {
 
 	public void saveOrUpdate(User user);
 
-	public void deleteUser(String username);
+	public void deleteUser(User user);
 }

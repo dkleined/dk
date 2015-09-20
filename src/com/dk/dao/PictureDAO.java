@@ -3,6 +3,7 @@ package com.dk.dao;
 import java.util.List;
 
 import com.dk.model.Picture;
+import com.dk.model.User;
 
 public interface PictureDAO {
 
@@ -12,6 +13,8 @@ public interface PictureDAO {
 
 	public void saveOrUpdate(Picture picture);
 
-	public void deletePicture(int id);
+	public void deletePicture(Picture picture);
+	
+	public List<Picture> getByUsername(User username);
 
 }

@@ -32,8 +32,8 @@ public class PictureDataServiceImpl implements PictureDataService {
 	}
 
 	@Override
-	public void deletePictureData(int id) {
-		pictureDataDAO.deleteData(id);
+	public void deletePictureData(PictureData pictureData) {
+		pictureDataDAO.deleteData(pictureData);
 	}
 
 }

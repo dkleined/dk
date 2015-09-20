@@ -51,7 +51,7 @@ public class PictureServlet extends HttpServlet {
 		// get the picture
 		Picture picture = pictureService.getPicture(pictureId);
 		// get the data
-		PictureThumb thumb = pictureThumbService.getPictureData(picture.getId());
+		PictureThumb thumb = pictureThumbService.getPictureThumb(picture.getId());
 
 		// send the picture
 		resp.setContentType("image/jpg");

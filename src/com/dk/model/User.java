@@ -13,6 +13,8 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = -7175758461005219245L;
 	private String username;
+	private String firstName;
+	private String lastName;
 	private String password;
 	private String email;
 
@@ -42,5 +44,23 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Column(name = "first_name")
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String first_name) {
+		this.firstName = first_name;
+	}
+
+	@Column(name = "last_name")
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String last_name) {
+		this.lastName = last_name;
 	}
 }

@@ -76,6 +76,10 @@ public class AccountController {
 			model.addAttribute("target", "account");
 			return "login";
 		} else {
+			User tmpUser = userService.getUser(sessionTool.getCurrentUser().getUsername());
+			model.addAttribute("user", tmpUser);
+			sessionTool.setCurrentUser(tmpUser);
+			model.addAttribute("uploadedPictures", pictureService.getByUsername(tmpUser));
 			return "account";
 		}
 	}
@@ -102,6 +106,25 @@ public class AccountController {
 		} else {
 			return "buy";
 		}
+	}
+	
+	@RequestMapping(value = "/deletePicture{id}")
+	public String deletePicture(Model model, @RequestParam int id) {
+		Picture toDelete = pictureService.getPicture(id);
+		PictureData toDeleteData = pictureDataService.getPictureData(toDelete.getId());
+		PictureThumb toDeleteThumb = pictureThumbService.getPictureThumb(toDelete.getId());
+		
+		if(toDelete.getUsername().getUsername().equals(sessionTool.getCurrentUser().getUsername())) {
+			pictureThumbService.deletePictureThumb(toDeleteThumb);
+			pictureDataService.deletePictureData(toDeleteData);
+			pictureService.deletePicture(toDelete);
+			model.addAttribute("successMsg", "Picture successfully deleted.");
+		} else {
+			model.addAttribute("dangerMsg", "You lack permission to delete that picture.");
+		}
+		model.addAttribute("user", sessionTool.getCurrentUser());
+		model.addAttribute("uploadedPictures", pictureService.getByUsername(sessionTool.getCurrentUser()));
+		return "account";
 	}
 
 	@RequestMapping(value = "/account/add", method = RequestMethod.POST)
@@ -153,7 +176,7 @@ public class AccountController {
 		// save everything
 		pictureService.SaveOrUpdatePicture(toSave);
 		pictureDataService.SaveOrUpdatePictureData(toSaveData);
-		pictureThumbService.SaveOrUpdatePictureData(toSaveThumb);
+		pictureThumbService.SaveOrUpdatePictureThumb(toSaveThumb);
 
 		// return a success message
 		model.addAttribute("successMsg", "Image uploaded successfuly!");

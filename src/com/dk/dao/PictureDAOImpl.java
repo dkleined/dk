@@ -3,12 +3,14 @@ package com.dk.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dk.model.Picture;
+import com.dk.model.User;
 
 @Repository
 @Transactional
@@ -43,8 +45,18 @@ public class PictureDAOImpl implements PictureDAO {
 	}
 
 	@Override
-	public void deletePicture(int id) {
-		sessionFactory.getCurrentSession().delete(id);
+	public void deletePicture(Picture picture) {
+		sessionFactory.getCurrentSession().delete(picture);
+	}
+
+	@Override
+	public List<Picture> getByUsername(User username) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from Picture where username = :username ");
+		query.setParameter("username", username);
+		
+		@SuppressWarnings("unchecked")
+		List<Picture> list = query.list();
+		return list;
 	}
 
 }

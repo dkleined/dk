@@ -8,6 +8,6 @@ public interface PictureDataService {
 
 	void SaveOrUpdatePictureData(PictureData picture);
 
-	void deletePictureData(int id);
+	void deletePictureData(PictureData pictureData);
 
 }

@@ -8,6 +8,6 @@ public interface PictureThumbDAO {
 
 	public void saveOrUpdate(PictureThumb picture);
 
-	public void deleteData(int id);
+	public void deleteData(PictureThumb thumb);
 
 }

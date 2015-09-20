@@ -12,5 +12,5 @@ public interface UserService {
 
 	List<User> getUsers();
 
-	void deleteUser(String username);
+	void deleteUser(User user);
 }

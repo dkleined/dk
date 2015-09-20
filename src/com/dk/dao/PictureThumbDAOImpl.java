@@ -26,8 +26,8 @@ public class PictureThumbDAOImpl implements PictureThumbDAO {
 	}
 
 	@Override
-	public void deleteData(int id) {
-		sessionFactory.getCurrentSession().delete(id);
+	public void deleteData(PictureThumb thumb) {
+		sessionFactory.getCurrentSession().delete(thumb);
 		
 	}
 

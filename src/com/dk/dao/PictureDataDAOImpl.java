@@ -26,8 +26,8 @@ public class PictureDataDAOImpl implements PictureDataDAO {
 	}
 
 	@Override
-	public void deleteData(int id) {
-		sessionFactory.getCurrentSession().delete(id);
+	public void deleteData(PictureData pictureData) {
+		sessionFactory.getCurrentSession().delete(pictureData);
 		
 	}
 

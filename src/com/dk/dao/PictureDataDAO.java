@@ -8,6 +8,6 @@ public interface PictureDataDAO {
 
 	public void saveOrUpdate(PictureData picture);
 
-	public void deleteData(int id);
+	public void deleteData(PictureData pictureData);
 
 }

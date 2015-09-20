@@ -4,10 +4,10 @@ import com.dk.model.PictureThumb;
 
 public interface PictureThumbService {
 
-	PictureThumb getPictureData(int id);
+	PictureThumb getPictureThumb(int id);
 
-	void SaveOrUpdatePictureData(PictureThumb picture);
+	void SaveOrUpdatePictureThumb(PictureThumb picture);
 
-	void deletePictureData(int id);
+	void deletePictureThumb(PictureThumb pictureThumb);
 
 }

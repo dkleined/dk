@@ -20,18 +20,18 @@ public class PictureThumbServiceImpl implements PictureThumbService {
 
 	@Override
 	@Transactional
-	public PictureThumb getPictureData(int id) {
+	public PictureThumb getPictureThumb(int id) {
 		return pictureThumbDAO.getPictureData(id);
 	}
 
 	@Override
-	public void SaveOrUpdatePictureData(PictureThumb pictureData) {
+	public void SaveOrUpdatePictureThumb(PictureThumb pictureData) {
 		pictureThumbDAO.saveOrUpdate(pictureData);
 	}
 
 	@Override
-	public void deletePictureData(int id) {
-		pictureThumbDAO.deleteData(id);
+	public void deletePictureThumb(PictureThumb pictureThumb) {
+		pictureThumbDAO.deleteData(pictureThumb);
 	}
 
 }

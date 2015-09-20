@@ -3,6 +3,7 @@ package com.dk.service;
 import java.util.List;
 
 import com.dk.model.Picture;
+import com.dk.model.User;
 
 public interface PictureService {
 
@@ -12,6 +13,7 @@ public interface PictureService {
 
 	List<Picture> getPictures();
 
-	void deletePicture(int id);
+	void deletePicture(Picture picture);
 
+	List<Picture> getByUsername(User username);
 }
