@@ -1,0 +1,94 @@
+body {
+	padding-top: 70px;
+	/* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+	padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+	padding: 0 15px;
+}
+
+@media ( min-width :768px) {
+	body {
+		padding-top: 100px;
+		/* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+	}
+	.navbar-fixed-top .navbar-brand {
+		padding: 15px 0;
+	}
+}
+
+.img-responsive {
+	width: 95%;
+	height: 85%;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0
+}
+
+.container-fluid {
+	background: grey;
+	height: 100%;
+	display: table;
+	width: 100%;
+	padding: 0;
+	height: 100%;
+	padding-top: 100px;
+}
+
+.body {
+	background: grey;
+}
+
+.row-fluid {
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.centering {
+	float: none;
+	margin: 0 auto;
+}
+
+.row-fluid {
+	height: 100%;
+}
+
+#pre_text {
+	height: auto;
+	max-height: 80%;
+	overflow: auto;
+	/*overflow-y: none;*/
+}
+
+.center-horizontal-align {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.display-table {
+	border-spacing: 10px;
+	border-collapse: separate;
+}
+
+
+.panel-title {
+	display: inline;
+	font-weight: bold;
+}
+
+.checkbox.pull-right {
+	margin: 0;
+}
+
+.pl-ziro {
+	padding-left: 0px;
+}
