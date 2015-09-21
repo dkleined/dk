@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dk.dao.PictureDAO;
 import com.dk.dao.PictureDataDAO;
-import com.dk.model.Picture;
 import com.dk.model.PictureData;
 
 @Service

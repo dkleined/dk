@@ -17,6 +17,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.dk.model.Picture;
 import com.dk.model.PictureThumb;
+import com.dk.service.PictureDataService;
 import com.dk.service.PictureService;
 import com.dk.service.PictureThumbService;
 
@@ -28,6 +29,8 @@ public class PictureServlet extends HttpServlet {
 	PictureService pictureService;
 	@Autowired
 	PictureThumbService pictureThumbService;
+	@Autowired
+	PictureDataService pictureDataService;
 
 	private WebApplicationContext springContext;
 
@@ -43,22 +46,31 @@ public class PictureServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String path = req.getPathInfo();
+		System.out.println(req.getPathInfo());
+		String[] splitRequest = req.getPathInfo().split("/");
 
 		// grab the id
 		String pictureIdStr = path.substring(path.indexOf('/') + 1);
-		int pictureId = Integer.parseInt(pictureIdStr);
+		int pictureId = Integer.parseInt(splitRequest[1]);
 
 		// get the picture
 		Picture picture = pictureService.getPicture(pictureId);
 		// get the data
 		PictureThumb thumb = pictureThumbService.getPictureThumb(picture.getId());
+		byte[] data = null;
+		
+		resp.setContentType("image/jpg");
+		if (splitRequest[2].equals("thumb")) {
+			data = thumb.getData();
+		} else if (splitRequest[2].equals("fullsize")) {
+			data = pictureDataService.getPictureData(pictureId).getData();
+		}
 
 		// send the picture
-		resp.setContentType("image/jpg");
 		BufferedOutputStream out = new BufferedOutputStream(resp.getOutputStream());
-
-		out.write(thumb.getData());
+		out.write(data);
 		out.close();
+
 	}
 
 }

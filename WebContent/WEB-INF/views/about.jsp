@@ -17,11 +17,11 @@
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4">
 				<ul class="list-group">
-					<li class="list-group-item">Take some awesome pictures</li>
-					<li class="list-group-item">Upload them to DK for free</li>
+					<li class="list-group-item">Take an amazing picture</li>
+					<li class="list-group-item">Upload it to DK for free</li>
 					<li class="list-group-item">We pay the hosting fees and
-						advertise your work</li>
-					<li class="list-group-item">Somebody pays for your photos</li>
+						advertise for free</li>
+					<li class="list-group-item">Somebody purchases the rights to your photo</li>
 					<li class="list-group-item">You get paid.</li>
 				</ul>
 			</div>

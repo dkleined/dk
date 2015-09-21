@@ -48,8 +48,8 @@
 											<td>${user.email}</td>
 										</tr>
 										<tr>
-											<td><a href="${logoutAction}"> <input
-													type="submit" class="btn btn-primary" value="Logout" />
+											<td><a href="${logoutAction}"> <input type="submit"
+													class="btn btn-primary" value="Logout" />
 											</a></td>
 										</tr>
 									</table>
@@ -96,16 +96,15 @@
 
 						<div class="panel-body">
 
-							<display:table name="purchasedPictures" id="picture"
-								pagesize="10" cellspacing="10" requestURI="/account"
-								class="display-table" style="width:100%">
-								<display:column property="fileName" title="File Name" />
-								<display:column title="Price">$${picture.price} </display:column>
+							<display:table name="orders" id="order" pagesize="10"
+								cellspacing="10" requestURI="/account" class="display-table"
+								style="width:100%">
+								<display:column title="File Name">${picture.fileName}</display:column>
 								<display:column>
-									<a href="${deleteAction}?id=${picture.id}"> <input
-										type="submit" class="btn btn-primary" value="Delete" />
-									</a>
+									<img src="picture/${picture.id}/fullsize" width="214"
+										height="138" />
 								</display:column>
+
 							</display:table>
 
 

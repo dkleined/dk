@@ -1,9 +1,9 @@
 drop table if exists credit_cards;
+drop table if exists orders;
 drop table if exists picture_data;
 drop table if exists picture_thumb;
 drop table if exists pictures;
 drop table if exists users;
-
 
 
 create table credit_cards (
@@ -15,6 +15,8 @@ create table credit_cards (
 
 create table users (
 	username varchar(30) NOT NULL PRIMARY KEY,
+	first_name varchar(30) NOT NULL,
+	last_name varchar(30) NOT NULL,
 	user_password varchar(30) NOT NULL,
 	email varchar(30) NOT NULL
 );
@@ -39,5 +41,10 @@ create table picture_thumb (
 	FOREIGN KEY (id) REFERENCES pictures(id)
 );
 
-
-insert into users (username, user_password, email) VALUES ('admin', 'password', 'admin@test.com');
+create table orders (
+	id int AUTO_INCREMENT PRIMARY KEY,
+	username varchar(30),
+	picture_id int,
+	FOREIGN KEY (username) REFERENCES users(username),
+	FOREIGN KEY (picture_id) REFERENCES pictures(id)
+);

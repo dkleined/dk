@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <head>
-<title>DK Login</title>
+<title>Login DK</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
 	rel="stylesheet" type="text/css" />
 <link

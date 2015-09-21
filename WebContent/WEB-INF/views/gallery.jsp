@@ -21,7 +21,7 @@
 				cellspacing="10" requestURI="/gallery" class="display-table">
 				<display:column property="fileName" title="File Name" />
 				<display:column>
-					<img src="picture/${picture.id}" width="214" height="138" />
+					<img src="picture/${picture.id}/thumb" width="214" height="138" />
 				</display:column>
 				<display:column title="Price">$${picture.price} </display:column>
 				<display:column>

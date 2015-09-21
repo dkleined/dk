@@ -42,6 +42,7 @@
 				<beans:value>com.dk.model.User</beans:value>
 				<beans:value>com.dk.model.PictureData</beans:value>
 				<beans:value>com.dk.model.PictureThumb</beans:value>
+				<beans:value>com.dk.model.Order</beans:value>
 				<beans:value>com.dk.model.Picture</beans:value>
 			</beans:list>
 		</beans:property>
@@ -85,6 +86,14 @@
 	</beans:bean>
 	<beans:bean id="pictureThumbService" class="com.dk.service.PictureThumbServiceImpl">
 		<beans:property name="pictureThumbDAO" ref="pictureThumbDAO"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="orderDAO" class="com.dk.dao.OrderDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="orderService" class="com.dk.service.OrderServiceImpl">
+		<beans:property name="orderDAO" ref="orderDAO"></beans:property>
 	</beans:bean>
 
 	<context:component-scan base-package="com.dk" />
