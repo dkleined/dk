@@ -16,6 +16,7 @@
 </head>
 <body>
 	<c:url var="deleteAction" value="/deletePicture"></c:url>
+	<c:url var="logoutAction" value="/logout"></c:url>
 	<%@ include file="/WEB-INF/views/navbar.jsp"%>
 	<div class="container-fluid container">
 		<%@ include file="/WEB-INF/views/alerts.jsp"%>
@@ -45,6 +46,11 @@
 										<tr>
 											<td>Email:</td>
 											<td>${user.email}</td>
+										</tr>
+										<tr>
+											<td><a href="${logoutAction}"> <input
+													type="submit" class="btn btn-primary" value="Logout" />
+											</a></td>
 										</tr>
 									</table>
 								</div>
@@ -80,7 +86,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-xs-12 col-md-6"
 					style="font-size: 12pt; line-height: 2em;">
 					<div class="panel panel-default">
@@ -90,9 +96,9 @@
 
 						<div class="panel-body">
 
-							<display:table name="purchasedPictures" id="picture" pagesize="10"
-								cellspacing="10" requestURI="/account" class="display-table"
-								style="width:100%">
+							<display:table name="purchasedPictures" id="picture"
+								pagesize="10" cellspacing="10" requestURI="/account"
+								class="display-table" style="width:100%">
 								<display:column property="fileName" title="File Name" />
 								<display:column title="Price">$${picture.price} </display:column>
 								<display:column>

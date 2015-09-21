@@ -197,7 +197,34 @@ public class AccountController {
 		}
 		sessionTool.setCurrentUser(user);
 		model.addAttribute("user", tmp);
+		return "redirect:" + target;
+	}
+	
+	
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String register(@ModelAttribute("user") User user, Model model, @RequestParam("target") String target) {
+
+		User tmp = userService.getUser(user.getUsername());
+		if (tmp != null) {
+			model.addAttribute("dangerMsg", "Username already exists.");
+			model.addAttribute("target", target);
+			return "login";
+		}
+		
+		userService.SaveOrUpdateUser(user);
+		
+		sessionTool.setCurrentUser(user);
+		model.addAttribute("user", tmp);
 		return target;
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/logout")
+	public String logout() {
+		sessionTool.setCurrentUser(null);
+		return "index";
 	}
 
 }
