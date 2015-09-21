@@ -31,13 +31,13 @@ The schema file is included in the project, but depends on the following:
 
 A database that follows the definition outlined in /WEB-INF/spring/root-context.xml
 
-<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://localhost:3306/dk" />
-		<beans:property name="username" value="root" />
-		<beans:property name="password" value="" />
-</beans:bean>
+beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close"
+		beans:property name="driverClassName" value="com.mysql.jdbc.Driver" 
+		beans:property name="url" value="jdbc:mysql://localhost:3306/dk" 
+		beans:property name="username" value="root" 
+		beans:property name="password" value="" 
+beans:bean
 
 This assumes the default port, the database named 'dk', and a root user without a password. To customize these settings change the values above in root-context.xml. I am saving pictures to the database, so the database will also need to be configured to accept larger than default packet sizes. For example:
 
